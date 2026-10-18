@@ -1,15 +1,6 @@
 # 🤖 Otto Offline Assistant
 
-<div align="center">
-
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)
-![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey.svg)
-![Privacy](https://img.shields.io/badge/Privacy-100%25%20Offline-success.svg)
-![License](https://img.shields.io/badge/License-MIT-yellow.svg)
-
 An advanced, fully offline, privacy-first voice assistant built for Windows. Otto handles custom wake-word detection, local speech transcription, local LLM generation (supporting English and Arabic), and neural text-to-speech synthesis without relying on any cloud APIs.
-
-</div>
 
 ---
 
@@ -29,8 +20,7 @@ graph TD
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style G fill:#9f9,stroke:#333,stroke-width:2px
     style E fill:#bbf,stroke:#333,stroke-width:2px
-
-    ✨ Key Features
+✨ Key Features
 Local Wake-Word Engine: Uses openWakeWord for ultra-low-latency custom wake-word triggering ("Hey Otto").
 
 Offline Speech-to-Text: Integrates high-performance whisper.cpp for fast local transcription.
@@ -51,7 +41,6 @@ otto-assistant/
 ├── requirements.txt     # Python dependencies list
 ├── otto_assistant.py    # Main control script & event loop
 └── README.md            # Documentation
-
 🚀 Setup & Installation Guide
 Because large model binaries and weights exceed GitHub storage thresholds, follow these steps to configure your local runtime environment:
 
@@ -86,6 +75,8 @@ Speak "Hey Otto" to your microphone and begin your conversation!
 Distributed under the MIT License. Feel free to fork, modify, and build upon it!
 
 
+6. Scroll down and click the green **Commit changes...** button, then confirm.
+
 ---
 
-Once you commit this version, GitHub will automatically compile the architecture section into a clean, modern vector flowchart graphic instead of plain text, and the badges at the top will give it an official open-source look! Let me know how it looks on your page.
+Go back and look at your main repository page now. This clean setup uses standard Markdown headers (`#` and `##`) which will force GitHub to properly scale the text sizes, render the flowchart diagram correctly, and make your project look like a professional software portfolio piece! Let me know how it looks now.
