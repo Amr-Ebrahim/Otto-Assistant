@@ -1,91 +1,91 @@
 # 🤖 Otto Offline Assistant
 
-An offline, privacy-focused voice assistant built for Windows. Otto listens for a custom wake word ("Hey Otto"), records your speech, transcribes it locally using Whisper, generates a response via a local LLM server (`llama.cpp`), and speaks back using Piper TTS—completely offline!
+<div align="center">
+
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)
+![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey.svg)
+![Privacy](https://img.shields.io/badge/Privacy-100%25%20Offline-success.svg)
+![License](https://img.shields.io/badge/License-MIT-yellow.svg)
+
+An advanced, fully offline, privacy-first voice assistant built for Windows. Otto handles custom wake-word detection, local speech transcription, local LLM generation (supporting English and Arabic), and neural text-to-speech synthesis without relying on any cloud APIs.
+
+</div>
 
 ---
 
-## 🏗️ System Architecture & Data Flow
+## 🏗️ System Architecture
 
-Otto runs entirely locally on your machine, ensuring complete data privacy and zero cloud dependencies. 
+The following diagram illustrates the complete local data flow and component pipeline when interacting with Otto:
 
-```text
- ┌───────────────┐     Audio Stream     ┌───────────────────┐
- │  Microphone   │ ───────────────────► │  openWakeWord     │ (Detects "Hey Otto")
- └───────────────┘                      └───────────────────┘
-                                                  │ (Wake Word Triggered)
-                                                  ▼
- ┌───────────────┐      WAV Audio       ┌───────────────────┐
- │   Speaker     │ ◄─────────────────── │    Piper TTS      │ (Synthesizes Response)
- └───────────────┘                      └───────────────────┘
-         ▲                                        ▲
-         │ Text Response                          │ Text Response
- ┌───────────────┐     JSON (REST API)  ┌───────────────────┐
- │  llama.cpp    │ ◄─────────────────── │   whisper.cpp     │ (Transcribes Audio)
- │ (Local LLM)   │                      └───────────────────┘
- └───────────────┘
+```mermaid
+graph TD
+    A[Microphone Input] -->|Audio Stream| B(openWakeWord)
+    B -->|Trigger: 'Hey Otto'| C(Speech Recording & Silence Detection)
+    C -->|WAV File| D(whisper.cpp STT)
+    D -->|Transcribed Text| E(llama.cpp Local Server)
+    E -->|JSON Response| F(Piper TTS)
+    F -->|Synthesized Audio| G[Speaker Output]
 
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style G fill:#9f9,stroke:#333,stroke-width:2px
+    style E fill:#bbf,stroke:#333,stroke-width:2px
 
-🚀 Features
-Custom Wake Word Detection: Powered locally by openWakeWord.
+    ✨ Key Features
+Local Wake-Word Engine: Uses openWakeWord for ultra-low-latency custom wake-word triggering ("Hey Otto").
 
-Offline Speech-to-Text: Fast, lightweight local transcription via whisper.cpp.
+Offline Speech-to-Text: Integrates high-performance whisper.cpp for fast local transcription.
 
-Local Language Model Server: Communicates with a local server instance using llama.cpp supporting both English and Arabic conversational inference.
+Local LLM Backend: Connects to a local server instance via llama.cpp supporting intelligent bilingual (English/Arabic) inference.
 
-Natural Offline Text-to-Speech: Synthesizes voice output using Piper TTS.
+Neural Text-to-Speech: Generates natural voice responses offline utilizing Piper TTS.
 
-Bilingual Capabilities: Automatically detects language input and routes responses accordingly.
+Absolute Privacy: Zero telemetry, zero external cloud requests—your voice stays entirely on your hardware.
 
-🛠️ Project Structure
+📂 Project Structure
 Plaintext
 otto-assistant/
 │
-├── audio/               # Runtime generated audio clips (ignored by git)
-├── models/              # Local models & binaries directory (see download links below)
-├── .gitignore           # Git ignore rules for virtual environments and binaries
-├── requirements.txt     # Python package dependencies
-├── otto_assistant.py    # Main control script and event loop
-└── README.md            # Project documentation
-📥 Setup, Installation & Dependencies
-Because large model binaries and executables exceed GitHub's file storage limits, you will need to set up the runtime dependencies and models locally:
+├── audio/               # Runtime audio buffer storage (ignored by git)
+├── models/              # Local model weights & binaries (see setup instructions)
+├── .gitignore           # Excludes virtual environments, caches, and large weights
+├── requirements.txt     # Python dependencies list
+├── otto_assistant.py    # Main control script & event loop
+└── README.md            # Documentation
+
+🚀 Setup & Installation Guide
+Because large model binaries and weights exceed GitHub storage thresholds, follow these steps to configure your local runtime environment:
 
 1. Clone the Repository
 Bash
 git clone [https://github.com/YOUR_USERNAME/Otto-Assistant.git](https://github.com/YOUR_USERNAME/Otto-Assistant.git)
 cd Otto-Assistant
-2. Install Python Dependencies
-Make sure you have Python installed, then install the required Python packages:
+2. Set Up Python Environment
+Install the necessary package dependencies:
 
 Bash
 pip install -r requirements.txt
 3. Download Required Binaries & Models
-To run this project, download and place the necessary components inside a local models/ directory:
+Create a local models/ folder and populate it with the required open-source engines:
 
-Speech-to-Text (whisper.cpp):
+whisper.cpp: Download the CLI executable (whisper-cli.exe) and your preferred model weights (e.g., ggml-large-v3.bin).
 
-Download the compiled CLI executable (whisper-cli.exe) and model weights (e.g., ggml-large-v3.bin) from the whisper.cpp releases page.
+Piper TTS: Download the Windows binary and voice files (en_US-amy-medium.onnx and ar_JO-kareem-medium.onnx).
 
-Text-to-Speech (Piper):
+llama.cpp: Set up a local server instance serving your preferred open-source model (like Qwen2.5) on port 8080.
 
-Download the Windows binary and voice models (en_US-amy-medium.onnx and ar_JO-kareem-medium.onnx) from the Piper TTS repository.
+🎮 Usage
+Ensure your local llama.cpp server is active at http://localhost:8080.
 
-Local LLM Server (llama.cpp):
-
-Download and run a local server binary from llama.cpp releases to serve your preferred open-source model (such as Qwen2.5 or Llama) on port 8080.
-
-▶️ Running the Assistant
-Ensure your local llama.cpp server is active and running on http://localhost:8080.
-
-Run the main script from your terminal:
+Run the main control script:
 
 Bash
 python otto_assistant.py
-Say "Hey Otto" into your microphone to begin interacting!
+Speak "Hey Otto" to your microphone and begin your conversation!
 
 📄 License
-This project is open-source and available under the MIT License.
+Distributed under the MIT License. Feel free to fork, modify, and build upon it!
 
 
 ---
 
-Once you paste this in and commit it, your GitHub repo will look exceptional—complete with a clear visual text diagram of your hardware/software pipeline and helpful external links for anyone looking to understand or run your work!
+Once you commit this version, GitHub will automatically compile the architecture section into a clean, modern vector flowchart graphic instead of plain text, and the badges at the top will give it an official open-source look! Let me know how it looks on your page.
