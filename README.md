@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <img src="docs/assets/otto-pipeline.svg" width="100%" alt="Otto pipeline: microphone, openWakeWord wake word, whisper.cpp speech-to-text, llama.cpp local LLM, Piper text-to-speech." />
+  <img src="otto-pipeline.svg" width="100%" alt="Otto pipeline: microphone, openWakeWord wake word, whisper.cpp speech-to-text, llama.cpp local LLM, Piper text-to-speech." />
 </p>
 
 ---
@@ -50,7 +50,7 @@ flowchart LR
 4. The text is sent to a local **llama.cpp** server, with an instruction to answer in the same language.
 5. **Piper** speaks the answer with an Arabic or English voice, depending on the script of the reply.
 
-The full design — components, timing, language routing and data flow — is in **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)**.
+The full design — components, timing, language routing and data flow — is in **[ARCHITECTURE.md](ARCHITECTURE.md)**.
 
 ## Tech stack
 
@@ -64,7 +64,7 @@ The full design — components, timing, language routing and data flow — is in
 
 ## Quick start
 
-> Full step-by-step setup, including downloading every model and running the LLM server, is in **[docs/INSTALLATION.md](docs/INSTALLATION.md)**.
+> Full step-by-step setup, including downloading every model and running the LLM server, is in **[INSTALLATION.md](INSTALLATION.md)**.
 
 ```powershell
 # 1. Get the code (the script expects this exact folder)
@@ -76,7 +76,7 @@ python -m venv venv
 venv\Scripts\activate
 pip install -r requirements.txt
 
-# 3. Download the models into C:\otto-assistant\models (see docs/INSTALLATION.md)
+# 3. Download the models into C:\otto-assistant\models (see INSTALLATION.md)
 
 # 4. Start the local LLM server (in a separate terminal)
 llama.cpp\llama-server.exe -m models\llm\qwen2.5-7b-instruct-q4_k_m.gguf --port 8080 -ngl 99
@@ -94,7 +94,7 @@ All settings live at the top of [`otto_assistant.py`](otto_assistant.py):
 | Setting | Default | What it does |
 | :-- | :-- | :-- |
 | `PROJECT_DIR` | `C:\otto-assistant` | Root folder for `models/` and `audio/` |
-| `MIC_DEVICE_INDEX` | `1` | Which microphone to use ([how to find yours](docs/INSTALLATION.md#7-choose-your-microphone)) |
+| `MIC_DEVICE_INDEX` | `1` | Which microphone to use ([how to find yours](INSTALLATION.md#7-choose-your-microphone)) |
 | `MIC_NATIVE_RATE` | `44100` | Your microphone's sample rate; audio is resampled to 16 kHz |
 | `WAKE_THRESHOLD` | `0.005` | Wake-word score needed to trigger |
 | `SILENCE_DURATION` | `1.5` | Seconds of silence that end a question |
@@ -107,10 +107,9 @@ All settings live at the top of [`otto_assistant.py`](otto_assistant.py):
 otto-assistant/
 ├── otto_assistant.py      # Main loop: wake word → record → transcribe → LLM → speak
 ├── requirements.txt       # Python dependencies
-├── docs/
-│   ├── INSTALLATION.md    # Full setup guide (models, LLM server, microphone)
-│   ├── ARCHITECTURE.md    # System design and data flow
-│   └── assets/            # Diagrams
+├── INSTALLATION.md        # Full setup guide (models, LLM server, microphone)
+├── ARCHITECTURE.md        # System design and data flow
+├── otto-pipeline.svg      # Pipeline diagram
 ├── models/                # Model files — downloaded locally, not in git
 │   ├── wake/              #   hey_otto.onnx
 │   ├── whisper/           #   whisper-cli.exe (in Release/) + ggml-large-v3.bin
@@ -134,7 +133,7 @@ With an NVIDIA GPU, use the CUDA builds of whisper.cpp and llama.cpp. On a CPU-o
 
 ## Egyptian Arabic voice (optional)
 
-The script in this repository uses Piper's `ar_JO-kareem-medium` voice for Arabic. For a more natural **Egyptian Arabic** voice, I run [VoiceTut-TTS](https://huggingface.co/mohammedaly22/VoiceTut-TTS) locally on the GPU instead — an open-source model fine-tuned on Egyptian Arabic speech that also handles Arabic–English code-switching. Setup and the code change are in [docs/INSTALLATION.md](docs/INSTALLATION.md#9-optional-egyptian-arabic-voice-with-voicetut-tts).
+The script in this repository uses Piper's `ar_JO-kareem-medium` voice for Arabic. For a more natural **Egyptian Arabic** voice, I run [VoiceTut-TTS](https://huggingface.co/mohammedaly22/VoiceTut-TTS) locally on the GPU instead — an open-source model fine-tuned on Egyptian Arabic speech that also handles Arabic–English code-switching. Setup and the code change are in [INSTALLATION.md](INSTALLATION.md#9-optional-egyptian-arabic-voice-with-voicetut-tts).
 
 ## Acknowledgements
 
