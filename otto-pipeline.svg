@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 196" width="1000" height="196" role="img" aria-labelledby="t">
+  <title id="t">Otto pipeline: Listen (microphone) → Wake (openWakeWord) → Transcribe (whisper.cpp) → Think (llama.cpp · local) → Speak (Piper TTS)</title>
+  <rect x=".5" y=".5" width="999" height="195" rx="18" fill="#0B1020" stroke="#1F2B47"/>
+  <text x="20.0" y="44" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', 'Liberation Mono', monospace" font-size="15" letter-spacing="2" fill="#8B98B5">OTTO PIPELINE</text>
+  <text x="980.0" y="44" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', 'Liberation Mono', monospace" font-size="15" fill="#22D3EE">offline · AR / EN</text>
+  
+  <rect x="20.0" y="74" width="170" height="92" rx="14" fill="#121A2E" stroke="#22D3EE" stroke-opacity=".75" stroke-width="1.5"/>
+  <text x="105.0" y="104" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', 'Liberation Mono', monospace" font-size="13" fill="#22D3EE">01</text>
+  <text x="105.0" y="132" text-anchor="middle" font-family="'Segoe UI', Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#E6EDF7">Listen</text>
+  <text x="105.0" y="153" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', 'Liberation Mono', monospace" font-size="13" fill="#8B98B5">microphone</text><path d="M195.0 120.0 H212.5 M206.5 115.0 L212.5 120.0 L206.5 125.0" fill="none" stroke="#33CAF0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="217.5" y="74" width="170" height="92" rx="14" fill="#121A2E" stroke="#43C1F1" stroke-opacity=".75" stroke-width="1.5"/>
+  <text x="302.5" y="104" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', 'Liberation Mono', monospace" font-size="13" fill="#43C1F1">02</text>
+  <text x="302.5" y="132" text-anchor="middle" font-family="'Segoe UI', Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#E6EDF7">Wake</text>
+  <text x="302.5" y="153" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', 'Liberation Mono', monospace" font-size="13" fill="#8B98B5">openWakeWord</text><path d="M392.5 120.0 H410.0 M404.0 115.0 L410.0 120.0 L404.0 125.0" fill="none" stroke="#54B8F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="415.0" y="74" width="170" height="92" rx="14" fill="#121A2E" stroke="#64AFF4" stroke-opacity=".75" stroke-width="1.5"/>
+  <text x="500.0" y="104" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', 'Liberation Mono', monospace" font-size="13" fill="#64AFF4">03</text>
+  <text x="500.0" y="132" text-anchor="middle" font-family="'Segoe UI', Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#E6EDF7">Transcribe</text>
+  <text x="500.0" y="153" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', 'Liberation Mono', monospace" font-size="13" fill="#8B98B5">whisper.cpp</text><path d="M590.0 120.0 H607.5 M601.5 115.0 L607.5 120.0 L601.5 125.0" fill="none" stroke="#75A6F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="612.5" y="74" width="170" height="92" rx="14" fill="#121A2E" stroke="#869DF7" stroke-opacity=".75" stroke-width="1.5"/>
+  <text x="697.5" y="104" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', 'Liberation Mono', monospace" font-size="13" fill="#869DF7">04</text>
+  <text x="697.5" y="132" text-anchor="middle" font-family="'Segoe UI', Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#E6EDF7">Think</text>
+  <text x="697.5" y="153" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', 'Liberation Mono', monospace" font-size="13" fill="#8B98B5">llama.cpp · local</text><path d="M787.5 120.0 H805.0 M799.0 115.0 L805.0 120.0 L799.0 125.0" fill="none" stroke="#9694F8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="810.0" y="74" width="170" height="92" rx="14" fill="#121A2E" stroke="#A78BFA" stroke-opacity=".75" stroke-width="1.5"/>
+  <text x="895.0" y="104" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', 'Liberation Mono', monospace" font-size="13" fill="#A78BFA">05</text>
+  <text x="895.0" y="132" text-anchor="middle" font-family="'Segoe UI', Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#E6EDF7">Speak</text>
+  <text x="895.0" y="153" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', 'Liberation Mono', monospace" font-size="13" fill="#8B98B5">Piper TTS</text>
+</svg>
